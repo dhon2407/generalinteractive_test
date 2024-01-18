@@ -1,5 +1,4 @@
-﻿using System;
-using Buildings;
+﻿using Buildings;
 using Sirenix.OdinInspector;
 using TMPro;
 using UnityEngine;

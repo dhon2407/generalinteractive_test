@@ -763,8 +763,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c246b520ae7d0640a7daea5e45bf84a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  width: 10
-  height: 10
+  width: 3
+  height: 3
   widthOffset: 0.45
   heightOffset: 0.26
   cameraController: {fileID: 519420033}

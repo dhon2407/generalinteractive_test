@@ -14,6 +14,8 @@ namespace UI
         [SerializeField] private Color buildableColor = Color.green;
         [SerializeField] private Color unBuildableColor = Color.red;
         
+        public BuildingType CurrentBuildingType { get; private set; }
+        public bool Active => _active;
 
         private bool _active;
         private Camera _camera;
@@ -65,6 +67,7 @@ namespace UI
             _active = true;
             Show();
             imageIndicator.sprite = GameSettings.GetBuildingBaseSprite(buildingType);
+            CurrentBuildingType = buildingType;
         }
 
         private void Update()
@@ -74,5 +77,11 @@ namespace UI
         }
 
         private Vector3 CurrentPosition => _snapOn ? _snapPosition : Input.mousePosition;
+
+        public void BuildStarted()
+        {
+            _active = false;
+            Hide();
+        }
     }
 }

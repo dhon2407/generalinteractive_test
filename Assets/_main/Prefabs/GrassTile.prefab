@@ -78,6 +78,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   snapPoint: {fileID: 8804156669148586344}
+  originalScale: {x: 0.37, y: 0.37, z: 0.37}
 --- !u!4 &8804156669148586344 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3627481971007611174, guid: 3f9f46a97ea5a7c4fb3a2710695ae115, type: 3}

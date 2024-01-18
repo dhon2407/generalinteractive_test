@@ -91,3 +91,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   snapPoint: {fileID: 231561144522431514}
+  originalScale: {x: 0.37, y: 0.37, z: 0.37}

@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Cinematics;
+using DG.Tweening;
 using Sirenix.OdinInspector;
 using SOData;
 using Tile;
@@ -22,11 +23,12 @@ namespace Map
 
         [SerializeField] private CameraController cameraController;
 
-        private readonly List<GameObject> _currentTiles = new();
+        private readonly List<BaseTile> _currentTiles = new();
         private TileType[,] _tileBlueprint;
         
         private void Start()
         {
+            DOTween.SetTweensCapacity(50000,1000);
             GenerateMap();
         }
 
@@ -45,22 +47,26 @@ namespace Map
                     instancePosition.x = (i + j) * widthOffset;
                     instancePosition.y = (j - i) * heightOffset;
                     _tileBlueprint[i, j] = Random.Range(0f, 1f) > 0.8f ? TileType.Building : TileType.Grass;
-                    _currentTiles.Add(Instantiate(GameSettings.GetTilePrefab(_tileBlueprint[i,j]), instancePosition, quaternion.identity));
+                    _currentTiles.Add(Instantiate(GameSettings.GetTilePrefab(_tileBlueprint[i, j]), instancePosition,
+                        quaternion.identity).GetComponent<BaseTile>());
 
                     if ((i == width / 2) && (j == height / 2))
                         centerPosition = instancePosition;
                 }
             }
 
+            foreach (BaseTile tile in _currentTiles)
+                tile.Popup();
+
             cameraController.MoveTo(centerPosition);
         }
 
         private void RemoveAllTiles()
         {
-            foreach (GameObject currentTile in _currentTiles)
+            foreach (BaseTile currentTile in _currentTiles)
             {
                 if (currentTile != null)
-                    Destroy(currentTile);
+                    currentTile.Destroy();
             }
             
             _currentTiles.Clear();
