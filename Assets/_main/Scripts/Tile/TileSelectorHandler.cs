@@ -18,7 +18,7 @@ namespace Tile
         
         public static void StartBuild()
         {
-            _instance.buildIndicator.BuildStarted();
+            _instance.buildIndicator.Stop();
         }
 
         private void Awake()

@@ -74,8 +74,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4279769112
+  m_fontColor: {r: 0.09433961, g: 0.09433961, b: 0.09433961, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -269,6 +269,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba88203e94f54bf6a88408a6ec4dfe17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buildingType: 0
   icon: {fileID: 2046487578305644735}
   buildingName: {fileID: 5464466799073404977}
 --- !u!1 &6284372115740013997

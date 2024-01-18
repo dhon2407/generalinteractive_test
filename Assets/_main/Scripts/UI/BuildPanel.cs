@@ -12,7 +12,6 @@ namespace UI
         [SerializeField] private RectTransform rTransform;
         [SerializeField] private bool hideOnStart;
         
-        
         private float _height;
         private Vector3 _originalPosition;
         private Vector3 _hiddenPosition;

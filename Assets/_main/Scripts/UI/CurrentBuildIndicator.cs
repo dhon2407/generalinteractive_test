@@ -78,7 +78,7 @@ namespace UI
 
         private Vector3 CurrentPosition => _snapOn ? _snapPosition : Input.mousePosition;
 
-        public void BuildStarted()
+        public void Stop()
         {
             _active = false;
             Hide();

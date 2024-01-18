@@ -38,6 +38,19 @@ namespace Map
             _buildingTilePool = GameObjectPool<BaseTile>.CreateInstance(GameSettings.GetTilePrefab(TileType.Building), maxDimension * maxDimension, transform);
         }
 
+        public void Generate(int newWidth, int newHeight)
+        {
+            width = Mathf.Clamp(newWidth, 1, maxDimension);
+            height =  Mathf.Clamp(newHeight, 1, maxDimension);
+            
+            GenerateMap();
+        }
+
+        public void Clear()
+        {
+            RemoveAllTiles();
+        }
+
         [Button, HideInEditorMode]
         private void GenerateMap()
         {
