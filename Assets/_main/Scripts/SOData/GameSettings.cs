@@ -52,7 +52,7 @@ namespace SOData
                 _ => throw new UnityException($"No data for building type: {buildingType}.")
             };
         }
-        
+#if UNITY_EDITOR
         private void Awake()
         {
             var guid = AssetDatabase.FindAssets($"t:{nameof(GameSettings)}");
@@ -72,5 +72,6 @@ namespace SOData
             await Task.Delay(1);
             DestroyImmediate(this);
         }
+#endif
     }
 }

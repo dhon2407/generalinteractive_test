@@ -16,7 +16,7 @@ namespace Tile
         private static TileSelectorHandler _instance;
         private static BaseTile _currentTile;
         
-        public static void StartBuild()
+        public static void Release()
         {
             _instance.buildIndicator.Stop();
         }

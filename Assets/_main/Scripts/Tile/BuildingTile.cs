@@ -26,7 +26,7 @@ namespace Tile
 
         private void OnMouseUpAsButton()
         {
-            if (!TileSelectorHandler.BuildingActive)
+            if (!TileSelectorHandler.BuildingActive || !_buildable)
                 return;
             
             StartBuilding(TileSelectorHandler.CurrentBuildingType);
@@ -45,7 +45,7 @@ namespace Tile
                 buildingSprite.DOFade(1f, 0f);
             });
 
-            TileSelectorHandler.StartBuild();
+            TileSelectorHandler.Release();
         }
     }
 }
