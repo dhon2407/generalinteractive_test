@@ -81,3 +81,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a1bf92c36b1495d82084c6ec33e8d2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  snapPoint: {fileID: 6702496382922443492}
+--- !u!4 &6702496382922443492 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3627481971007611174, guid: 3f9f46a97ea5a7c4fb3a2710695ae115, type: 3}
+  m_PrefabInstance: {fileID: 8021873356030880706}
+  m_PrefabAsset: {fileID: 0}

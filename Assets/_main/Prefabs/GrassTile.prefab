@@ -50,7 +50,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7776325328097935563, guid: 3f9f46a97ea5a7c4fb3a2710695ae115, type: 3}
       propertyPath: m_Name
-      value: GrassTile Variant
+      value: GrassTile
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -77,3 +77,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19d1e5f04fc94728bf46986b17487755, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  snapPoint: {fileID: 8804156669148586344}
+--- !u!4 &8804156669148586344 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3627481971007611174, guid: 3f9f46a97ea5a7c4fb3a2710695ae115, type: 3}
+  m_PrefabInstance: {fileID: 5222419073168965710}
+  m_PrefabAsset: {fileID: 0}

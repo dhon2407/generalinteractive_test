@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using Buildings;
 using Sirenix.OdinInspector;
 using Tile;
@@ -32,17 +33,25 @@ namespace SOData
 
         public static GameObject GetTilePrefab(TileType tileType)
         {
-            switch (tileType)
+            return tileType switch
             {
-                case TileType.Grass:
-                    return GetInstance().grassTile;
-                case TileType.Road:
-                    return GetInstance().roadTile;
-                case TileType.Building:
-                    return GetInstance().buildTile;
-                default:
-                    throw new UnityException($"No data for tile type {tileType}.");
-            }
+                TileType.Grass => GetInstance().grassTile,
+                TileType.Road => GetInstance().roadTile,
+                TileType.Building => GetInstance().buildTile,
+                _ => throw new UnityException($"No data for tile type: {tileType}.")
+            };
+        }
+        
+        public static Sprite GetBuildingBaseSprite(BuildingType buildingType)
+        {
+            var settings = GetInstance();
+            return buildingType switch
+            {
+                BuildingType.Barracks => settings.buildingBarracks.spriteData.level1,
+                BuildingType.Archer => settings.buildingArcher.spriteData.level1,
+                BuildingType.Wizard => settings.buildingWizard.spriteData.level1,
+                _ => throw new UnityException($"No data for building type: {buildingType}.")
+            };
         }
         
         private void Awake()

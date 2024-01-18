@@ -52,6 +52,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4607381131780551353, guid: 3f9f46a97ea5a7c4fb3a2710695ae115, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 2.51
+      objectReference: {fileID: 0}
     - target: {fileID: 7776325328097935563, guid: 3f9f46a97ea5a7c4fb3a2710695ae115, type: 3}
       propertyPath: m_Name
       value: RoadTile
@@ -64,6 +68,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 7880794762651058031}
   m_SourcePrefab: {fileID: 100100000, guid: 3f9f46a97ea5a7c4fb3a2710695ae115, type: 3}
+--- !u!4 &231561144522431514 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3627481971007611174, guid: 3f9f46a97ea5a7c4fb3a2710695ae115, type: 3}
+  m_PrefabInstance: {fileID: 3558349482917641532}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &6524241067395956215 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7776325328097935563, guid: 3f9f46a97ea5a7c4fb3a2710695ae115, type: 3}
@@ -81,3 +90,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4c08dbf583f47a8941d364a0b24d9db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  snapPoint: {fileID: 231561144522431514}
