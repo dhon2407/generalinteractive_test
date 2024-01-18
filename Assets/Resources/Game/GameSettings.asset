@@ -12,3 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c195e83433b4cdaa60f0f06f921f523, type: 3}
   m_Name: GameSettings
   m_EditorClassIdentifier: 
+  grassTile: {fileID: 2563336354659336325, guid: 0522a11451705ab4e9d564e87382901c, type: 3}
+  buildTile: {fileID: 340133920647588617, guid: d3cb0d13918e3254ca2886bd888a97f1, type: 3}
+  roadTile: {fileID: 6524241067395956215, guid: 01c170f1d5199364bae38c5608f1bf01, type: 3}
+  buildingBarracks: {fileID: 11400000, guid: 0ac8b3b8ea1c3aa4b8ee0741ed7f4a67, type: 2}
+  buildingArcher: {fileID: 11400000, guid: b0f13362678332f42b1ad7f76de7e0a4, type: 2}
+  buildingWizard: {fileID: 11400000, guid: 990755677f1742d4ebf058e5bcd6fb1e, type: 2}

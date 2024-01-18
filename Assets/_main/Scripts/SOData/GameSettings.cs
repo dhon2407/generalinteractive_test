@@ -1,4 +1,5 @@
 ﻿using System.Threading.Tasks;
+using Buildings;
 using Sirenix.OdinInspector;
 using Tile;
 using UnityEditor;
@@ -15,13 +16,19 @@ namespace SOData
         private static GameSettings GetInstance() =>
             _instance ? _instance : _instance = Resources.Load<GameSettings>("Game/GameSettings");
 
-        [BoxGroup("Tile Prefabs")]
-        [SerializeField, PreviewField]
+        [BoxGroup("Tile Prefabs"), SerializeField, PreviewField]
         private GameObject grassTile;
-        [SerializeField, PreviewField]
+        [BoxGroup("Tile Prefabs"), SerializeField, PreviewField]
         private GameObject buildTile;
-        [SerializeField, PreviewField]
+        [BoxGroup("Tile Prefabs"), SerializeField, PreviewField]
         private GameObject roadTile;
+
+        [BoxGroup("Building Data"), SerializeField, LabelText("Barracks")]
+        private BuildingData buildingBarracks;
+        [BoxGroup("Building Data"), SerializeField, LabelText("Archer")]
+        private BuildingData buildingArcher;
+        [BoxGroup("Building Data"), SerializeField, LabelText("Wizard")]
+        private BuildingData buildingWizard;
 
         public static GameObject GetTilePrefab(TileType tileType)
         {
