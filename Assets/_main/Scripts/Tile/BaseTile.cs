@@ -1,4 +1,5 @@
 ﻿using DG.Tweening;
+using Helper;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -6,7 +7,7 @@ using Random = UnityEngine.Random;
 namespace Tile
 {
     [HideMonoScript]
-    public abstract class BaseTile : MonoBehaviour
+    public abstract class BaseTile : PoolableMonobehaviour
     {
         [SerializeField] private Transform snapPoint;
         [SerializeField] private Vector3 originalScale;

@@ -30,13 +30,13 @@ namespace SOData
         [BoxGroup("Building Data"), SerializeField, LabelText("Wizard")]
         private BuildingData buildingWizard;
 
-        public static GameObject GetTilePrefab(TileType tileType)
+        public static BaseTile GetTilePrefab(TileType tileType)
         {
             return tileType switch
             {
-                TileType.Grass => GetInstance().grassTile,
-                TileType.Road => GetInstance().roadTile,
-                TileType.Building => GetInstance().buildTile,
+                TileType.Grass => GetInstance().grassTile.GetComponent<BaseTile>(),
+                TileType.Road => GetInstance().roadTile.GetComponent<BaseTile>(),
+                TileType.Building => GetInstance().buildTile.GetComponent<BaseTile>(),
                 _ => throw new UnityException($"No data for tile type: {tileType}.")
             };
         }

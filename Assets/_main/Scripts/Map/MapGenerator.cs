@@ -1,10 +1,10 @@
 using System.Collections.Generic;
 using Cinematics;
 using DG.Tweening;
+using Helper;
 using Sirenix.OdinInspector;
 using SOData;
 using Tile;
-using Unity.Mathematics;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -13,6 +13,9 @@ namespace Map
     [HideMonoScript]
     public class MapGenerator : MonoBehaviour
     {
+        [SerializeField]
+        private int maxDimension = 150;
+        
         [SerializeField, MinValue(0)]
         private int width = 10;
         [SerializeField, MinValue(0)]
@@ -25,11 +28,14 @@ namespace Map
 
         private readonly List<BaseTile> _currentTiles = new();
         private TileType[,] _tileBlueprint;
-        
-        private void Start()
+        private GameObjectPool<BaseTile> _grassTilePool;
+        private GameObjectPool<BaseTile> _buildingTilePool;
+
+        private void Awake()
         {
             DOTween.SetTweensCapacity(50000,1000);
-            GenerateMap();
+            _grassTilePool = GameObjectPool<BaseTile>.CreateInstance(GameSettings.GetTilePrefab(TileType.Grass), maxDimension * maxDimension, transform);
+            _buildingTilePool = GameObjectPool<BaseTile>.CreateInstance(GameSettings.GetTilePrefab(TileType.Building), maxDimension * maxDimension, transform);
         }
 
         [Button, HideInEditorMode]
@@ -47,18 +53,41 @@ namespace Map
                     instancePosition.x = (i + j) * widthOffset;
                     instancePosition.y = (j - i) * heightOffset;
                     _tileBlueprint[i, j] = Random.Range(0f, 1f) > 0.8f ? TileType.Building : TileType.Grass;
-                    _currentTiles.Add(Instantiate(GameSettings.GetTilePrefab(_tileBlueprint[i, j]), instancePosition,
-                        quaternion.identity).GetComponent<BaseTile>());
+                    var newTile = GetTile(_tileBlueprint[i, j], instancePosition);
+                    _currentTiles.Add(newTile);
 
                     if ((i == width / 2) && (j == height / 2))
                         centerPosition = instancePosition;
+                    
+                    if ((i > (width / 2) - 15) && (i < (width / 2) + 15) &&
+                        (j > (height / 2) - 15) && (j < (height / 2) + 15))
+                    {
+                        newTile.Popup();
+                    }
                 }
             }
 
-            foreach (BaseTile tile in _currentTiles)
-                tile.Popup();
-
             cameraController.MoveTo(centerPosition);
+        }
+
+        private BaseTile GetTile(TileType tileType, Vector3 position)
+        {
+            BaseTile tile;
+            switch (tileType)
+            {
+                case TileType.Grass:
+                    tile = _grassTilePool.GetObject();
+                    break;
+                case TileType.Building:
+                    tile = _buildingTilePool.GetObject();
+                    break;
+                default:
+                    throw new UnityException($"Unhandled tile type: {tileType}.");
+            }
+
+            tile.transform.position = position;
+
+            return tile;
         }
 
         private void RemoveAllTiles()
@@ -66,7 +95,7 @@ namespace Map
             foreach (BaseTile currentTile in _currentTiles)
             {
                 if (currentTile != null)
-                    currentTile.Destroy();
+                    currentTile.gameObject.SetActive(false);
             }
             
             _currentTiles.Clear();
