@@ -8,6 +8,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1448138329163507891, guid: 3f9f46a97ea5a7c4fb3a2710695ae115, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 6102f52ad94a3dc42bdbf392fd7b16e2, type: 3}
     - target: {fileID: 1854778159249305116, guid: 3f9f46a97ea5a7c4fb3a2710695ae115, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -50,7 +54,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7776325328097935563, guid: 3f9f46a97ea5a7c4fb3a2710695ae115, type: 3}
       propertyPath: m_Name
-      value: RoadTile Variant
+      value: RoadTile
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
