@@ -9,7 +9,8 @@ namespace Tile
         [SerializeField] private Transform snapPoint;
 
         public Vector3 SnapPointPosition => snapPoint.position;
-        
+        public abstract bool Buildable { get; }
+
         protected virtual void OnMouseEnter()
         {
             TileSelectorHandler.SelectTile(this);

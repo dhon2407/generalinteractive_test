@@ -1033,6 +1033,8 @@ MonoBehaviour:
   - {fileID: 3213755047417248717}
   - {fileID: 1778293339}
   - {fileID: 2119016002}
+  buildableColor: {r: 0, g: 1, b: 0, a: 0.6666667}
+  unBuildableColor: {r: 1, g: 0, b: 0, a: 0.6666667}
 --- !u!114 &2125537983
 MonoBehaviour:
   m_ObjectHideFlags: 0

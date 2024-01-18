@@ -35,12 +35,14 @@ namespace Tile
         {
             _currentTile = baseTile;
             _instance.buildIndicator.SnapOn(baseTile.SnapPointPosition);
+            _instance.buildIndicator.Buildable(_currentTile.Buildable);
         }
 
         public static void UnselectTile(BaseTile baseTile)
         {
             _currentTile = null;
             _instance.buildIndicator.SnapOff();
+            _instance.buildIndicator.Buildable(false);
         }
     }
 }

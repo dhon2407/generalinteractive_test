@@ -10,8 +10,10 @@ namespace UI
     public class CurrentBuildIndicator : MonoBehaviour
     {
         [SerializeField] private Image imageIndicator;
-        
         [SerializeField] private BuildingButton[] buildingButtons;
+        [SerializeField] private Color buildableColor = Color.green;
+        [SerializeField] private Color unBuildableColor = Color.red;
+        
 
         private bool _active;
         private Camera _camera;
@@ -41,10 +43,16 @@ namespace UI
         {
             _snapOn = false;
         }
+        
+        public void Buildable(bool buildable)
+        {
+            imageIndicator.color = buildable ? buildableColor :unBuildableColor;
+        }
 
         private void Awake()
         {
             _camera = Camera.main;
+            imageIndicator.color = unBuildableColor;
             _active = false;
             Hide();
             
